@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MTA bus scheduler</title>
+
+	<!-- Bootstrap Links -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- jquery link -->
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+
+	<!-- Moment.js link -->
+  	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+	<style type="text/css">
+	
+	.main-container {
+		padding: 0px 20px;
+		font-family: Arial, Helvetica;
+	}
+
+	.jumbotron {
+		text-align: center;
+		background-color: #3333ff;
+		color: white; 
+	}
+
+	.panel-heading {
+		background-color: #3333ff;
+		font-size: x-large;
+		font-weight: bold;
+	}
+
+	</style>
+
+</head>
+<body>
+<div class="main-container">
+
+	<div class="jumbotron">
+	  <h1>Where's My Fuk'n M60-SBS?!</h1>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading" id="First-panel-heading">
+		</div>
+
+		<!-- Table -->
+		<table class="table">
+		    <tr>
+		    	<th>Bus Stop Code</th>
+		    	<th>Bus Stop Intersection</th>
+		    	<th>Next Arriving <p>to La Guardia Airport</th>
+		    	<th>Minutes Away</th>
+		    </tr>
+			<tr>
+				<td>403117</td>
+				<td>Broadway & 106th St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>403122</td>
+				<td>Broadway & 116th St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>404262</td>
+				<td>Broadway & 120th St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>401442</td>
+				<td>Amsterdam Ave & 120th St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>403292</td>
+				<td>Amsterdam Ave & La Salle St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>402656</td>
+				<td>W. 125th St & Nicholas Ave</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>402659</td>
+				<td>W. 125th St & Malcolm X Blvd</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>402661</td>
+				<td>E. 125th St & Madison Ave</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>403671</td>
+				<td>E. 125th St & Lexington Ave</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>403673</td>
+				<td>E. 125th St & 2nd Ave</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>503357</td>
+				<td>Hoyt Ave & 31st St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>505254</td>
+				<td>Astoria Blvd & Steinway St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>504423</td>
+				<td>Astoria Blvd & 77th St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>504417</td>
+				<td>23rd Ave & 82nd St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>503876</td>
+				<td>23rd Ave & 87th St</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>504023</td>
+				<td>94th St & 23rd Ave</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>804110</td>
+				<td>LGA/terminal B</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>904199</td>
+				<td>LGA/Terminal D (drop off only)</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="panel panel-default">
+  		<div class="panel-heading">
+    		<h3 class="panel-title">Change Bus Route or decommission buses</h3>
+  		</div>
+	  	<div class="panel-body">
+	  		<div> Remove Bus </div>
+	  		  <div class="col-lg-12">
+			    <div class="input-group">
+			      <input type="text" class="form-control" aria-label="...">
+			      <div class="input-group-btn">
+			        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bus <span class="caret"></span></button>
+			        <ul class="dropdown-menu dropdown-menu-right">
+			          <li><a href="#">7573</a></li>
+			          <li><a href="#">9864</a></li>
+			          <li><a href="#">7586</a></li>
+			        </ul>
+			      </div><!-- /btn-group -->
+			    </div><!-- /input-group -->
+			  </div><!-- /.col-lg-12 -->
+			</div><!-- /.row -->
+	    	<div> Remove Route </div>
+	  		  <div class="col-lg-12">
+			    <div class="input-group">
+			      <input type="text" class="form-control" aria-label="...">
+			      <div class="input-group-btn">
+			        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Stop <span class="caret"></span></button>
+			        <ul class="dropdown-menu dropdown-menu-right">
+			          <li><a href="#">403117</a></li>
+			          <li><a href="#">403122</a></li>
+			          <li><a href="#">404262</a></li>
+			          <li><a href="#">401442</a></li>
+			          <li><a href="#">403292</a></li>
+			          <li><a href="#">402656</a></li>
+			          <li><a href="#">402659</a></li>
+			          <li><a href="#">402661</a></li>
+			          <li><a href="#">403671</a></li>
+			          <li><a href="#">403673</a></li>
+			          <li><a href="#">503357</a></li>
+			          <li><a href="#">505254</a></li>
+			          <li><a href="#">504423</a></li>
+			          <li><a href="#">504417</a></li>
+			          <li><a href="#">503876</a></li>
+			          <li><a href="#">504023</a></li>
+			          <li><a href="#">804110</a></li>
+			          <li><a href="#">904199</a></li>
+			        </ul>
+			      </div><!-- /btn-group -->
+			    </div><!-- /input-group -->
+			  </div><!-- /.col-lg-12 -->
+			</div><!-- /.row -->
+		<!-- panel-body end -->
+	  	</div>
+	</div>
+<!-- end of main-container -->
+</div>	
+</body>
+
+<script type="text/javascript">
+	$("#First-panel-heading").html(moment().format('MMMM Do YYYY, h:mm a'))
+</script>
+
+</html>
